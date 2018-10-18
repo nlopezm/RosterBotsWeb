@@ -4,9 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './material.module';
-import { LeagueComponent } from './league/league.component';
+import { HttpClientModule } from '@angular/common/http';
+
+// Components
+import { LeagueComponent } from './components/league/league.component';
+
+// Services
+import { LeagueService } from './services/league/league.service';
+import { TeamService } from './services/team/team.service';
+import { PlayerService } from './services/player/player.service';
 
 
 
@@ -14,15 +22,20 @@ import { LeagueComponent } from './league/league.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    LeagueComponent
+    LeagueComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    LeagueService,
+    TeamService,
+    PlayerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

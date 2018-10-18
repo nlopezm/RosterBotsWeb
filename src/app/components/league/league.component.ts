@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { LeagueDataSource } from './league-datasource';
 import { ActivatedRoute } from '@angular/router';
+import { LeagueService } from '../../services/league/league.service';
+import { League } from '../../classes/league';
 
 @Component({
   selector: 'app-league',
@@ -17,15 +19,11 @@ export class LeagueComponent implements OnInit {
   displayedColumns = ['id', 'name'];
   leagueId: number;
 
-  constructor(
-    private route: ActivatedRoute
-  ) { }
+  constructor(private route: ActivatedRoute, private leagueService: LeagueService) { }
 
   ngOnInit() {
     this.dataSource = new LeagueDataSource(this.paginator, this.sort);
     this.leagueId = this.route.snapshot.params.leagueId;
   }
-
-
 
 }
