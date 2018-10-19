@@ -1,3 +1,30 @@
-<p>
-  team works!
-</p>
+<mat-card>
+  <mat-card-title>{{team.name}}</mat-card-title>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card>
+  <mat-card-title>Players</mat-card-title>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let player of team.players; let i=index">
+      <a matLine href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">{{player.first_name}} {{player.last_name}}</a>
+      <a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}/update">
+        <button mat-icon-button>
+          <mat-icon>create</mat-icon>
+        </button>
+      </a>
+      <button mat-icon-button (click)="deleteTeam(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">
+        <button mat-icon-button>
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </a>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>
+<a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}/update">
+  <button mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+</a>
