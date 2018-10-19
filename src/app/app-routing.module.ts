@@ -13,14 +13,14 @@ import { CreateTeamComponent } from './components/teams/create-team/create-team.
 import { PlayerComponent } from './components/players/player/player.component';
 
 const routes: Routes = [
-  { path: 'leagues', component: LeaguesComponent, pathMatch: 'full' },
-  { path: 'leagues/create', component: CreateLeagueComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId', component: LeagueComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/update', component: UpdateLeagueComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/create', component: CreateTeamComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full' },
+  { path: 'leagues', component: LeaguesComponent, pathMatch: 'full', data: { title: 'Leagues' } },
+  { path: 'leagues/create', component: CreateLeagueComponent, pathMatch: 'full', data: { title: 'Create league' } },
+  { path: 'leagues/:leagueId', component: LeagueComponent, pathMatch: 'full', data: { title: 'Leagues' } },
+  { path: 'leagues/:leagueId/update', component: UpdateLeagueComponent, pathMatch: 'full', data: { title: 'Update leagues' } },
+  { path: 'leagues/:leagueId/teams/create', component: CreateTeamComponent, pathMatch: 'full', data: { title: 'Create team' } },
+  { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full', data: { title: 'Teams' } },
+  { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full', data: { title: 'Update team' } },
+  { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full', data: { title: 'Update player' } },
   { path: '**', redirectTo: 'leagues', pathMatch: 'full' },
 ];
 
