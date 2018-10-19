@@ -11,8 +11,6 @@ import { UpdateTeamComponent } from './components/teams/update-team/update-team.
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 
 import { PlayerComponent } from './components/players/player/player.component';
-import { UpdatePlayerComponent } from './components/players/update-player/update-player.component';
-import { CreatePlayerComponent } from './components/players/create-player/create-player.component';
 
 const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, pathMatch: 'full' },
@@ -23,8 +21,6 @@ const routes: Routes = [
   { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/:teamId/players/:playerId/update', component: UpdatePlayerComponent, pathMatch: 'full' },
-  { path: 'leagues/:leagueId/teams/:teamId/players/create', component: CreatePlayerComponent, pathMatch: 'full' },
   { path: '**', redirectTo: 'leagues', pathMatch: 'full' },
 ];
 

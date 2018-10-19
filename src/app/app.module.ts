@@ -21,9 +21,6 @@ import { UpdateTeamComponent } from './components/teams/update-team/update-team.
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 
 import { PlayerComponent } from './components/players/player/player.component';
-import { UpdatePlayerComponent } from './components/players/update-player/update-player.component';
-import { CreatePlayerComponent } from './components/players/create-player/create-player.component';
-
 
 // Services
 import { LeagueService } from './services/league/league.service';
@@ -44,8 +41,6 @@ import { PlayerService } from './services/player/player.service';
     CreateTeamComponent,
     UpdateTeamComponent,
     PlayerComponent,
-    CreatePlayerComponent,
-    UpdatePlayerComponent,
   ],
   imports: [
     BrowserModule,

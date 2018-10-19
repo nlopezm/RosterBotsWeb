@@ -1,11 +1,11 @@
 <mat-card>
-  <form class="player-form" *ngIf="player">
+  <form class="player-form" *ngIf="player" [formGroup]="formGroup" (onSubmit)="formGroup.valid && update()">
     <mat-form-field class="full-width">
-      <input matInput placeholder="First name" readonly="{{!updating}}" value="{{player.first_name}}">
+      <input formControlName="firstName" matInput placeholder="First name" readonly="{{!updating}}" [(ngModel)]="player.first_name">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Last name" readonly="{{!updating}}" value="{{player.last_name}}">
+      <input formControlName="lastName" matInput placeholder="Last name" readonly="{{!updating}}" [(ngModel)]="player.last_name">
     </mat-form-field>
 
     <mat-form-field class="full-width">
@@ -24,11 +24,11 @@
       <input matInput placeholder="Salary" readonly disabled="{{updating}}" value="${{player.salary}}">
     </mat-form-field>
 
+    <button mat-fab (click)="updatePlayer()" color="primary" *ngIf="!updating">
+      <mat-icon>create</mat-icon>
+    </button>
+    <button mat-fab color="primary" *ngIf="updating" (click)="formGroup.valid && update()">
+      <mat-icon>check</mat-icon>
+    </button>
   </form>
 </mat-card>
-<button mat-fab (click)="updatePlayer()" color="primary" *ngIf="!updating">
-  <mat-icon>create</mat-icon>
-</button>
-<button mat-fab color="primary" *ngIf="updating" (click)="confirm()">
-  <mat-icon>check</mat-icon>
-</button>
