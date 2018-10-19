@@ -19,7 +19,4 @@ describe('UpdateTeamComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

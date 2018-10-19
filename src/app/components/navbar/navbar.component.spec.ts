@@ -18,7 +18,4 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
 });

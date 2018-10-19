@@ -14,7 +14,7 @@ import { Team } from '../../../classes/team';
 export class TeamComponent implements OnInit {
   leagueId: number;
   teamId: number;
-  team: Team;
+  team;
 
   constructor(private route: ActivatedRoute, public snackBar: MatSnackBar,
     private playerService: PlayerService, private teamService: TeamService) { }
