@@ -8,9 +8,9 @@ describe('UpdateLeagueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateLeagueComponent ]
+      declarations: [UpdateLeagueComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
