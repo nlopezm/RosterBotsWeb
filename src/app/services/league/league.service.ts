@@ -10,7 +10,7 @@ import { League } from '../../classes/league';
   providedIn: 'root'
 })
 export class LeagueService {
-  url = environment.baseApiUrl + 'leagues/';
+  url = environment.baseApiUrl + 'leagues';
   constructor(public http: HttpClient) { }
 
   getLeagues(): Observable<{}> {
@@ -18,7 +18,7 @@ export class LeagueService {
   }
 
   getLeague(leagueId: number): Observable<{}> {
-    return this.http.get(this.url + leagueId);
+    return this.http.get(this.url + '/' + leagueId);
   }
 
   postLeague(league: League): Observable<{}> {
@@ -26,14 +26,14 @@ export class LeagueService {
   }
 
   updateLeague(league: League): Observable<{}> {
-    return this.http.put<League>(this.url + league.id, league);
+    return this.http.put<League>(this.url + '/' + league.id, league);
   }
 
   deleteLeague(leagueId: number): Observable<{}> {
-    return this.http.delete(this.url + leagueId);
+    return this.http.delete(this.url + '/' + leagueId);
   }
 
   checkLeagueName(name: string): Observable<{}> {
-    return this.http.head(environment.baseApiUrl + 'leagues?name=' + name);
+    return this.http.head(this.url + '/?name=' + name);
   }
 }

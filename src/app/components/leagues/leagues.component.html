@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let league of leagues; let i=index">
+    <a matLine href="leagues/{{league.id}}">{{league.name}}</a>
+    <a href="leagues/{{league.id}}/update">
+      <button mat-icon-button>
+        <mat-icon>create</mat-icon>
+      </button>
+    </a>
+    <button mat-icon-button (click)="deleteLeague(i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <a href="leagues/{{league.id}}">
+      <button mat-icon-button>
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </a>
+  </mat-list-item>
+</mat-nav-list>
+<button mat-fab (click)="createLeague()" color="primary">
+  <mat-icon>add</mat-icon>
+</button>

@@ -9,7 +9,22 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 
 // Components
-import { LeagueComponent } from './components/league/league.component';
+import { LeaguesComponent } from './components/leagues/leagues.component';
+import { LeagueComponent } from './components/leagues/league/league.component';
+import { UpdateLeagueComponent } from './components/leagues/update-league/update-league.component';
+import { CreateLeagueComponent } from './components/leagues/create-league/create-league.component';
+
+
+import { TeamsComponent } from './components/teams/teams.component';
+import { TeamComponent } from './components/teams/team/team.component';
+import { UpdateTeamComponent } from './components/teams/update-team/update-team.component';
+import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
+
+import { PlayersComponent } from './components/players/players.component';
+import { PlayerComponent } from './components/players/player/player.component';
+import { UpdatePlayerComponent } from './components/players/update-player/update-player.component';
+import { CreatePlayerComponent } from './components/players/create-player/create-player.component';
+
 
 // Services
 import { LeagueService } from './services/league/league.service';
@@ -22,7 +37,18 @@ import { PlayerService } from './services/player/player.service';
   declarations: [
     AppComponent,
     NavbarComponent,
+    LeaguesComponent,
     LeagueComponent,
+    CreateLeagueComponent,
+    UpdateLeagueComponent,
+    TeamsComponent,
+    TeamComponent,
+    CreateTeamComponent,
+    UpdateTeamComponent,
+    PlayersComponent,
+    PlayerComponent,
+    CreatePlayerComponent,
+    UpdatePlayerComponent,
   ],
   imports: [
     BrowserModule,
