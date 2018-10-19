@@ -7,7 +7,9 @@
   <mat-card-title>Players</mat-card-title>
   <mat-nav-list>
     <mat-list-item *ngFor="let player of team.players; let i=index">
-      <a matLine href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">{{player.first_name}} {{player.last_name}}</a>
+      <a matLine href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">{{player.first_name}} {{player.last_name}}
+        <i [ngClass]="{starter: player.type, substitute:!player.type}">{{player.type?"(Starter)":"(Substitute)"}}</i>
+      </a>
       <a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">
         <button mat-icon-button>
           <mat-icon>create</mat-icon>
