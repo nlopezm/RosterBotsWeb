@@ -29,7 +29,8 @@ export class CreateLeagueComponent implements OnInit {
   }
 
   create() {
-
+    if (this.formGroup.value.salary < (this.formGroup.value.starterPlayers + this.formGroup.value.substitutePlayers))
+      return;
     this.leagueService.postLeague(this.formGroup.value).subscribe(() => {
       this.snackBar.open('The league was created!!', '', { duration: 5000 });
       this.router.navigateByUrl('/leagues');

@@ -3,23 +3,25 @@
   <form *ngIf="league" novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
 
     <mat-form-field class="full-width">
-      <input formControlName="name" matInput placeholder="Name" [(ngModel)]="league.name">
+      <input required formControlName="name" matInput placeholder="Name" [(ngModel)]="league.name">
     </mat-form-field>
-    <div *ngIf="formGroup.get('name').status === 'PENDING'">
-      Checking...
-    </div>
+    <mat-error *ngIf="formGroup.get('name').status === 'PENDING'"> Checking name availability...</mat-error>
+    <mat-error *ngIf="formGroup.get('name').hasError('nameTaken')">This name is already in use</mat-error>
 
     <mat-form-field class="full-width">
-      <input formControlName="starterPlayers" type="number" matInput placeholder="# of Starter players" [(ngModel)]="league.starter_players">
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <input formControlName="substitutePlayers" type="number" matInput placeholder="# of Substitute players" [(ngModel)]="league.substitute_players">
+      <input required formControlName="starterPlayers" type="number" matInput placeholder="# of Starter players" [(ngModel)]="league.starter_players">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input formControlName="salaryCap" type="number" matInput placeholder="Salary Cap ($)" [(ngModel)]="league.salary_cap">
+      <input required formControlName="substitutePlayers" type="number" matInput placeholder="# of Substitute players" [(ngModel)]="league.substitute_players">
     </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input required formControlName="salaryCap" type="number" matInput placeholder="Salary Cap ($)" [(ngModel)]="league.salary_cap">
+    </mat-form-field>
+
+    <mat-error *ngIf="formGroup.get('salaryCap').value<(formGroup.get('starterPlayers').value+formGroup.get('substitutePlayers').value)">
+      The salary cap must be equal or greater than the # of players</mat-error>
 
     <button mat-fab color="primary" (click)="formGroup.valid && create()">
       <mat-icon>check</mat-icon>

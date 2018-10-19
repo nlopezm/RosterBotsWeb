@@ -3,11 +3,10 @@
   <form *ngIf="team" novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
 
     <mat-form-field class="full-width">
-      <input formControlName="name" matInput placeholder="Name" [(ngModel)]="team.name">
+      <input required formControlName="name" matInput placeholder="Name" [(ngModel)]="team.name">
     </mat-form-field>
-    <div *ngIf="formGroup.get('name').status === 'PENDING'">
-      Checking...
-    </div>
+    <mat-error *ngIf="formGroup.get('name').status === 'PENDING'"> Checking name availability...</mat-error>
+    <mat-error *ngIf="formGroup.get('name').hasError('nameTaken')">This name is already in use</mat-error>
 
     <button mat-fab color="primary" (click)="formGroup.valid && create()">
       <mat-icon>check</mat-icon>

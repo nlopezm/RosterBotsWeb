@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, pathMatch: 'full', data: { title: 'Leagues' } },
   { path: 'leagues/create', component: CreateLeagueComponent, pathMatch: 'full', data: { title: 'Create league' } },
   { path: 'leagues/:leagueId', component: LeagueComponent, pathMatch: 'full', data: { title: 'Leagues' } },
-  { path: 'leagues/:leagueId/update', component: UpdateLeagueComponent, pathMatch: 'full', data: { title: 'Update leagues' } },
+  { path: 'leagues/:leagueId/update', component: UpdateLeagueComponent, pathMatch: 'full', data: { title: 'Update league' } },
   { path: 'leagues/:leagueId/teams/create', component: CreateTeamComponent, pathMatch: 'full', data: { title: 'Create team' } },
   { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full', data: { title: 'Teams' } },
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full', data: { title: 'Update team' } },

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LeagueService } from '../../../services/league/league.service';
 import { League } from '../../../classes/league';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -39,6 +39,8 @@ export class UpdateLeagueComponent implements OnInit {
   }
 
   create() {
+    if (this.league.salaryCap < (this.league.starterPlayers + this.league.substitutePlayers))
+      return;
     this.leagueService.updateLeague(this.league).subscribe(() => {
       this.snackBar.open('The league was updated!!', '', { duration: 5000 });
       this.router.navigateByUrl('/leagues');
