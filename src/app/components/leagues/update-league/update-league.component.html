@@ -1,5 +1,5 @@
 <mat-card>
-  <form novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+  <form *ngIf="league" novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
 
     <mat-form-field class="full-width">
       <input formControlName="name" matInput placeholder="Name" [(ngModel)]="league.name">

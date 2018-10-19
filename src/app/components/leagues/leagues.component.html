@@ -1,4 +1,4 @@
-<mat-nav-list>
+<mat-nav-list *ngIf="leagues">
   <mat-list-item *ngFor="let league of leagues; let i=index">
     <a matLine href="leagues/{{league.id}}">{{league.name}}</a>
     <a href="leagues/{{league.id}}/update">
