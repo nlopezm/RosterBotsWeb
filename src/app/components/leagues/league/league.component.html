@@ -1,33 +1,36 @@
-<mat-card>
-  <mat-card-title>{{league.name}}</mat-card-title>
-  <p># Starter players: {{league.starter_players}}</p>
-  <p># Substitute players: {{league.substitute_players}}</p>
-  <p>Salary cap: ${{league.salary_cap}}</p>
-</mat-card>
-<mat-divider></mat-divider>
-<mat-card>
-  <mat-card-title>Teams</mat-card-title>
-  <mat-nav-list>
-    <mat-list-item *ngFor="let team of league.teams; let i=index">
-      <a matLine href="leagues/{{league.id}}/teams/{{team.id}}">{{team.name}}</a>
-      <a href="leagues/{{league.id}}/teams/{{team.id}}/update">
-        <button mat-icon-button>
-          <mat-icon>create</mat-icon>
+<mat-spinner class="spinner" *ngIf="!league"></mat-spinner>
+<div *ngIf="league">
+  <mat-card>
+    <mat-card-title>{{league.name}}</mat-card-title>
+    <p># Starter players: {{league.starter_players}}</p>
+    <p># Substitute players: {{league.substitute_players}}</p>
+    <p>Salary cap: ${{league.salary_cap}}</p>
+  </mat-card>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-title>Teams</mat-card-title>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let team of league.teams; let i=index">
+        <a matLine href="leagues/{{league.id}}/teams/{{team.id}}">{{team.name}}</a>
+        <a href="leagues/{{league.id}}/teams/{{team.id}}/update">
+          <button mat-icon-button>
+            <mat-icon>create</mat-icon>
+          </button>
+        </a>
+        <button mat-icon-button (click)="deleteTeam(i)">
+          <mat-icon>delete</mat-icon>
         </button>
-      </a>
-      <button mat-icon-button (click)="deleteTeam(i)">
-        <mat-icon>delete</mat-icon>
-      </button>
-      <a href="leagues/{{league.id}}/teams/{{team.id}}">
-        <button mat-icon-button>
-          <mat-icon>open_in_new</mat-icon>
-        </button>
-      </a>
-    </mat-list-item>
-  </mat-nav-list>
-</mat-card>
-<a href="leagues/{{league.id}}/teams/create">
-  <button mat-fab (click)="createTeam()" color="primary">
-    <mat-icon>add</mat-icon>
-  </button>
-</a>
+        <a href="leagues/{{league.id}}/teams/{{team.id}}">
+          <button mat-icon-button>
+            <mat-icon>open_in_new</mat-icon>
+          </button>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card>
+  <a href="leagues/{{league.id}}/teams/create">
+    <button mat-fab (click)="createTeam()" color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </a>
+</div>

@@ -1,3 +1,4 @@
+<mat-spinner class="spinner" *ngIf="!player"></mat-spinner>
 <mat-card>
   <form class="player-form" *ngIf="player" [formGroup]="formGroup" (onSubmit)="formGroup.valid && update()">
     <mat-form-field class="full-width">

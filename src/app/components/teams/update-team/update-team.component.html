@@ -1,5 +1,6 @@
+<mat-spinner class="spinner" *ngIf="!team"></mat-spinner>
 <mat-card>
-  <form novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+  <form *ngIf="team" novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
 
     <mat-form-field class="full-width">
       <input formControlName="name" matInput placeholder="Name" [(ngModel)]="team.name">

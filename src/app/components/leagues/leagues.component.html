@@ -1,3 +1,4 @@
+<mat-spinner class="spinner" *ngIf="!leagues"></mat-spinner>
 <mat-nav-list *ngIf="leagues">
   <mat-list-item *ngFor="let league of leagues; let i=index">
     <a matLine href="leagues/{{league.id}}">{{league.name}}</a>

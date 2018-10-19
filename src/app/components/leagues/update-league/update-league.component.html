@@ -1,3 +1,4 @@
+<mat-spinner class="spinner" *ngIf="!league"></mat-spinner>
 <mat-card>
   <form *ngIf="league" novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
 
