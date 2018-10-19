@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card *ngIf="team">
   <mat-card-title>{{team.name}}</mat-card-title>
 </mat-card>
 <mat-divider></mat-divider>
-<mat-card>
+<mat-card *ngIf="team && team.players">
   <mat-card-title>Players</mat-card-title>
   <mat-nav-list>
     <mat-list-item *ngFor="let player of team.players; let i=index">
@@ -12,7 +12,7 @@
           <mat-icon>create</mat-icon>
         </button>
       </a>
-      <button mat-icon-button (click)="deleteTeam(i)">
+      <button mat-icon-button (click)="deletePlayer(i)">
         <mat-icon>delete</mat-icon>
       </button>
       <a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">
@@ -23,7 +23,7 @@
     </mat-list-item>
   </mat-nav-list>
 </mat-card>
-<a href="leagues/{{leagueId}}/teams/{{team.id}}/players/{{player.id}}">
+<a href="leagues/{{leagueId}}/teams/create">
   <button mat-fab color="primary">
     <mat-icon>add</mat-icon>
   </button>

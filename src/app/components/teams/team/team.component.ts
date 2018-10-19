@@ -25,4 +25,16 @@ export class TeamComponent implements OnInit {
     this.teamService.getTeam(this.leagueId, this.teamId).subscribe((data) => this.team = data as Team, () => { });
   }
 
+  deletePlayer(i: number) {
+    const player = this.team.players[i];
+    if (confirm('Are you sure to delete ' + player.first_name + ' ' + player.last_name + '?')) {
+      this.playerService.deletePlayer(this.leagueId, this.teamId, this.team.players[i].id).subscribe(
+        () => {
+          this.team.players.splice(i, 1);
+          this.snackBar.open('The player was removed', '', { duration: 2000 });
+        }, () => { });
+    }
+
+  }
+
 }
