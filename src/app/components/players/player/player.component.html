@@ -9,19 +9,19 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Speed" readonly value="{{player.speed}}">
+      <input matInput placeholder="Speed" readonly disabled="{{updating}}" value="{{player.speed}}">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Strength" readonly value="{{player.strength}}">
+      <input matInput placeholder="Strength" readonly disabled="{{updating}}" value="{{player.strength}}">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Agility" readonly value="{{player.agility}}">
+      <input matInput placeholder="Agility" readonly disabled="{{updating}}" value="{{player.agility}}">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Salary" readonly value="${{player.salary}}">
+      <input matInput placeholder="Salary" readonly disabled="{{updating}}" value="${{player.salary}}">
     </mat-form-field>
 
   </form>
