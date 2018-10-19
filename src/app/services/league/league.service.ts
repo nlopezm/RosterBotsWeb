@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import 'rxjs/Rx';
 import { environment } from '../../../environments/environment';
 import { League } from '../../classes/league';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,8 @@ export class LeagueService {
   }
 
   checkLeagueName(name: string): Observable<{}> {
-    return this.http.head(this.url + '/?name=' + name);
+    return this.http.head(this.url + '?name=' + name).pipe(
+        map(res => of(true)),
+        catchError(err => of(false)));
   }
 }

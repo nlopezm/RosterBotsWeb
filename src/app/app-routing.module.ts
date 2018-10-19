@@ -16,9 +16,9 @@ import { CreatePlayerComponent } from './components/players/create-player/create
 
 const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, pathMatch: 'full' },
+  { path: 'leagues/create', component: CreateLeagueComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId', component: LeagueComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/update', component: UpdateLeagueComponent, pathMatch: 'full' },
-  { path: 'leagues/create', component: CreateLeagueComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full' },
   { path: 'leagues/:leagueId/teams/create', component: CreateTeamComponent, pathMatch: 'full' },

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { LeaguesComponent } from './components/leagues/leagues.component';
@@ -52,6 +53,8 @@ import { PlayerService } from './services/player/player.service';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     LeagueService,
