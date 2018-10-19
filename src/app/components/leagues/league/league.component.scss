@@ -4,8 +4,15 @@
     position: fixed;
     margin: 20px;
 }
+
 .spinner {
-  top: 45%;
-  position: fixed;
-  left: 37%;
+    top: 45%;
+    position: fixed;
+    left: 37%;
+}
+
+.no-teams-container {
+    text-align: center;
+    top: 55%;
+    position: sticky;
 }

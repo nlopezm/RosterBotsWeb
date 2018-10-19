@@ -1,13 +1,13 @@
-<mat-spinner class="spinner" *ngIf="!league"></mat-spinner>
+<mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <div *ngIf="league">
   <mat-card>
     <mat-card-title>{{league.name}}</mat-card-title>
-    <p>  Starter players: {{league.starter_players}}</p>
-    <p>  Substitute players: {{league.substitute_players}}</p>
-    <p>  Salary cap: ${{league.salary_cap}}</p>
+    <p> Starter players: {{league.starter_players}}</p>
+    <p> Substitute players: {{league.substitute_players}}</p>
+    <p> Salary cap: ${{league.salary_cap}}</p>
   </mat-card>
   <mat-divider></mat-divider>
-  <mat-card>
+  <mat-card *ngIf="league.teams.length">
     <mat-card-title>Teams</mat-card-title>
     <mat-nav-list>
       <mat-list-item *ngFor="let team of league.teams; let i=index">
@@ -29,8 +29,22 @@
     </mat-nav-list>
   </mat-card>
   <a [routerLink]="['/leagues', leagueId, 'teams','create']">
-    <button mat-fab (click)="createTeam()" color="primary">
+    <button mat-fab color="primary">
       <mat-icon>add</mat-icon>
     </button>
   </a>
+</div>
+<div *ngIf="!loading && (!league.teams || !league.teams.length)" class="no-teams-container">
+  <div style="width:100%;height:100%;">
+    <p>
+      There are still no teams registered in this league.
+      <b>Be the first!</b>
+    </p>
+    <br>
+    <a [routerLink]="['/leagues', leagueId, 'teams','create']">
+      <button mat-flat-button color="primary">
+        Create a team
+      </button>
+    </a>
+  </div>
 </div>

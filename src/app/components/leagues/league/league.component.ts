@@ -16,10 +16,13 @@ export class LeagueComponent implements OnInit {
     private teamService: TeamService, public snackBar: MatSnackBar) { }
   leagueId: number;
   league: League;
+  loading = true;
 
   ngOnInit() {
     this.leagueId = this.route.snapshot.params.leagueId;
-    this.leagueService.getLeague(this.leagueId).subscribe((data) => this.league = data as League, () => { });
+    this.leagueService.getLeague(this.leagueId).subscribe((data) => this.league = data as League, () => { },
+      () => this.loading = false
+    );
   }
 
   deleteTeam(i: number) {
@@ -30,10 +33,6 @@ export class LeagueComponent implements OnInit {
           this.snackBar.open('The team was removed', '', { duration: 2000 });
         }, () => { });
     }
-
-  }
-
-  createTeam() {
 
   }
 
