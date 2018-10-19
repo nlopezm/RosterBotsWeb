@@ -19,26 +19,23 @@ export class UpdateLeagueComponent implements OnInit {
   previousName: string;
 
   constructor(private route: ActivatedRoute, private leagueService: LeagueService,
-    private fb: FormBuilder, private router: Router, public snackBar: MatSnackBar) { }
-
-  ngOnInit() {
-    this.leagueId = this.route.snapshot.params.leagueId;
-    this.leagueService.getLeague(this.leagueId).subscribe(
-      (data) => {
-        this.league = data as League;
-        this.buildFormGroup();
-        this.previousName = this.league.name;
-      },
-      () => { });
-  }
-
-  buildFormGroup() {
+    private fb: FormBuilder, private router: Router, public snackBar: MatSnackBar) {
     this.formGroup = this.fb.group({
       name: ['', [Validators.required], this.validateNameNotTaken.bind(this)],
       starterPlayers: ['', [Validators.required, Validators.max(25), Validators.min(1)]],
       substitutePlayers: ['', [Validators.required, Validators.max(25), Validators.min(1)]],
       salaryCap: ['', [Validators.required, Validators.min(1)]],
     });
+  }
+
+  ngOnInit() {
+    this.leagueId = this.route.snapshot.params.leagueId;
+    this.leagueService.getLeague(this.leagueId).subscribe(
+      (data) => {
+        this.league = data as League;
+        this.previousName = this.league.name;
+      },
+      () => { });
   }
 
   create() {
@@ -54,6 +51,5 @@ export class UpdateLeagueComponent implements OnInit {
     return this.leagueService.checkLeagueName(control.value).map(res => {
       return (res || this.previousName === this.league.name) ? null : { nameTaken: true };
     });
-
-
   }
+}

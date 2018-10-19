@@ -1,3 +1,14 @@
-<p>
-  create-team works!
-</p>
+<mat-card>
+  <form novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+
+    <mat-form-field class="full-width">
+      <input formControlName="name" matInput placeholder="Name">
+    </mat-form-field>
+    <div *ngIf="formGroup.get('name').status === 'PENDING'">
+      Checking...
+    </div>
+    <button mat-fab color="primary" (click)="formGroup.valid && create()">
+      <mat-icon>check</mat-icon>
+    </button>
+  </form>
+</mat-card>

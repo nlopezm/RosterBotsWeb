@@ -26,6 +26,8 @@
     </mat-list-item>
   </mat-nav-list>
 </mat-card>
-<button mat-fab (click)="createTeam()" color="primary">
-  <mat-icon>add</mat-icon>
-</button>
+<a href="leagues/{{league.id}}/teams/create">
+  <button mat-fab (click)="createTeam()" color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+</a>
