@@ -15,12 +15,10 @@ import { UpdateLeagueComponent } from './components/leagues/update-league/update
 import { CreateLeagueComponent } from './components/leagues/create-league/create-league.component';
 
 
-import { TeamsComponent } from './components/teams/teams.component';
 import { TeamComponent } from './components/teams/team/team.component';
 import { UpdateTeamComponent } from './components/teams/update-team/update-team.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 
-import { PlayersComponent } from './components/players/players.component';
 import { PlayerComponent } from './components/players/player/player.component';
 import { UpdatePlayerComponent } from './components/players/update-player/update-player.component';
 import { CreatePlayerComponent } from './components/players/create-player/create-player.component';
@@ -41,11 +39,9 @@ import { PlayerService } from './services/player/player.service';
     LeagueComponent,
     CreateLeagueComponent,
     UpdateLeagueComponent,
-    TeamsComponent,
     TeamComponent,
     CreateTeamComponent,
     UpdateTeamComponent,
-    PlayersComponent,
     PlayerComponent,
     CreatePlayerComponent,
     UpdatePlayerComponent,
