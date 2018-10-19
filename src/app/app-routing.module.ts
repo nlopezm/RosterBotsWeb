@@ -11,6 +11,7 @@ import { UpdateTeamComponent } from './components/teams/update-team/update-team.
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 
 import { PlayerComponent } from './components/players/player/player.component';
+import { HomeComponent } from 'src/app/components/home/home.component';
 
 const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, pathMatch: 'full', data: { title: 'Leagues' } },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full', data: { title: 'Teams' } },
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full', data: { title: 'Update team' } },
   { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full', data: { title: 'Update player' } },
-  { path: '**', redirectTo: 'leagues', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, pathMatch: 'full', data: { title: 'Welcome!' } },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

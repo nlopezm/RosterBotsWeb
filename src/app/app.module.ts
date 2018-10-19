@@ -15,7 +15,7 @@ import { LeagueComponent } from './components/leagues/league/league.component';
 import { UpdateLeagueComponent } from './components/leagues/update-league/update-league.component';
 import { CreateLeagueComponent } from './components/leagues/create-league/create-league.component';
 
-
+import {HomeComponent} from './components/home/home.component';
 import { TeamComponent } from './components/teams/team/team.component';
 import { UpdateTeamComponent } from './components/teams/update-team/update-team.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
@@ -41,6 +41,7 @@ import { PlayerService } from './services/player/player.service';
     CreateTeamComponent,
     UpdateTeamComponent,
     PlayerComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
