@@ -1,4 +1,4 @@
-<mat-spinner class="spinner" *ngIf="!leagues"></mat-spinner>
+<mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <mat-nav-list *ngIf="leagues">
   <mat-list-item *ngFor="let league of leagues; let i=index">
     <a matLine [routerLink]="['/leagues', league.id]">{{league.name}}</a>
@@ -22,3 +22,16 @@
     <mat-icon>add</mat-icon>
   </button>
 </a>
+<div *ngIf="!loading && !leagues.length">
+  <div class="no-leagues-container">
+    <div style="width:100%;height:100%;">
+      <p>No league has been created yet. Why do not you create one?</p>
+      <br>
+      <a [routerLink]="['/leagues', 'create']">
+        <button mat-flat-button color="primary">
+          Create a League
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

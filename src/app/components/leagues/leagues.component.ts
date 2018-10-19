@@ -10,12 +10,13 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./leagues.component.scss']
 })
 export class LeaguesComponent implements OnInit {
-
+  loading = true;
   leagues: League[];
   constructor(private leagueService: LeagueService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.leagueService.getLeagues().subscribe((data) => this.leagues = data as League[], () => { });
+    this.leagueService.getLeagues().subscribe((data) => this.leagues = data as League[],
+      () => {}, () => this.loading = false);
   }
 
   deleteLeague(i: number) {
