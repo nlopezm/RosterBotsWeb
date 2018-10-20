@@ -34,14 +34,12 @@ export class PlayerComponent implements OnInit {
     });
 
     const subscriptionFirstName = this.keyUpFirstName
-      .map(event => event.target.value)
       .debounceTime(1000)
       .distinctUntilChanged()
       .flatMap(search => Observable.of(search).delay(500))
       .subscribe(() => this.checkPlayerFullName());
 
     const subscriptionLastName = this.keyUpLastName
-      .map(event => event.target.value)
       .debounceTime(1000)
       .distinctUntilChanged()
       .flatMap(search => Observable.of(search).delay(500))
@@ -75,7 +73,8 @@ export class PlayerComponent implements OnInit {
       this.router.navigateByUrl('/leagues/' + this.leagueId + '/teams/' + this.teamId);
     }, () => {
       this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    }, () => this.updatingPlayer = false);
+      this.updatingPlayer = false;
+    });
   }
 
   checkPlayerFullName() {

@@ -37,14 +37,12 @@ export class CreatePlayerComponent implements OnInit {
       type: ['', [Validators.required]],
     });
     const subscriptionFirstName = this.keyUpFirstName
-      .map(event => event.target.value)
       .debounceTime(1000)
       .distinctUntilChanged()
       .flatMap(search => Observable.of(search).delay(500))
       .subscribe(() => this.checkPlayerFullName());
 
     const subscriptionLastName = this.keyUpLastName
-      .map(event => event.target.value)
       .debounceTime(1000)
       .distinctUntilChanged()
       .flatMap(search => Observable.of(search).delay(500))
@@ -69,7 +67,8 @@ export class CreatePlayerComponent implements OnInit {
         this.snackBar.open(error.error, '', { duration: 7500 });
       else
         this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    }, () => this.creating = false);
+      this.creating = false;
+    });
   }
 
   checkPlayerFullName() {
