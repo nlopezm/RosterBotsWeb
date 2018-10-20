@@ -19,6 +19,7 @@ export class PlayerComponent implements OnInit {
   updating = false;
   formGroup: FormGroup;
   previousName: string;
+  updatingPlayer = false;
 
   constructor(private route: ActivatedRoute, private playerService: PlayerService,
     public snackBar: MatSnackBar, private router: Router, private fb: FormBuilder) {
@@ -59,6 +60,7 @@ export class PlayerComponent implements OnInit {
 
 
   update() {
+    this.updatingPlayer = true;
     const player = this.formGroup.value as Player;
     player.id = this.playerId;
     this.playerService.updatePlayer(this.leagueId, this.teamId, player).subscribe((teamId) => {
@@ -66,7 +68,7 @@ export class PlayerComponent implements OnInit {
       this.router.navigateByUrl('/leagues/' + this.leagueId + '/teams/' + this.teamId);
     }, () => {
       this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    });
+    }, () => this.updatingPlayer = false);
   }
 
 

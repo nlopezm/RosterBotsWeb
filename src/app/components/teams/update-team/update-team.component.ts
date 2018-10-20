@@ -18,6 +18,7 @@ export class UpdateTeamComponent implements OnInit {
   teamId: number;
   formGroup: FormGroup;
   previousName: string;
+  updating = false;
 
   constructor(private route: ActivatedRoute, private teamService: TeamService,
     private fb: FormBuilder, private router: Router, public snackBar: MatSnackBar) {
@@ -37,13 +38,14 @@ export class UpdateTeamComponent implements OnInit {
       () => { });
   }
 
-  create() {
+  update() {
+    this.updating = true;
     this.teamService.updateTeam(this.leagueId, this.team).subscribe(() => {
       this.snackBar.open('The team was updated!!', '', { duration: 5000 });
       this.router.navigateByUrl('/leagues/' + this.leagueId);
     }, () => {
       this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    });
+    }, ()=>this.updating=false);
   }
 
   validateNameNotTaken(control: AbstractControl) {

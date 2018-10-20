@@ -5,7 +5,7 @@
     <mat-nav-list>
       <a mat-list-item routerLink="home">Home</a>
       <a mat-list-item routerLink="leagues">Leagues</a>
-      <a mat-list-item disabled>Ranking</a>
+      <a mat-list-item class="disabled-link">Ranking</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -15,8 +15,6 @@
       </button>
       <span>{{title}}</span>
     </mat-toolbar>
-    <div class="fill">
       <router-outlet></router-outlet>
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

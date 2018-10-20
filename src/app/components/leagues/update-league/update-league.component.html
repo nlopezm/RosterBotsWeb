@@ -1,6 +1,6 @@
-<mat-spinner class="spinner" *ngIf="!league"></mat-spinner>
+<mat-spinner *ngIf="!league"></mat-spinner>
 <mat-card>
-  <form *ngIf="league" novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+  <form *ngIf="league" novalidate class="league-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && !creating && create()">
 
     <mat-form-field class="full-width">
       <input required formControlName="name" matInput placeholder="Name" [(ngModel)]="league.name">
@@ -23,7 +23,7 @@
     <mat-error *ngIf="formGroup.get('salaryCap').value<(formGroup.get('starterPlayers').value+formGroup.get('substitutePlayers').value)">
       The salary cap must be equal or greater than the # of players</mat-error>
 
-    <button mat-fab color="primary" (click)="formGroup.valid && create()">
+    <button mat-fab color="primary" (click)="formGroup.valid && create()" [disabled]="creating || !league">
       <mat-icon>check</mat-icon>
     </button>
   </form>

@@ -17,6 +17,7 @@ export class CreatePlayerComponent implements OnInit {
   teamId: number;
   player: Player;
   formGroup: FormGroup;
+  creating = false;
 
   constructor(private route: ActivatedRoute, private playerService: PlayerService,
     public snackBar: MatSnackBar, private router: Router, private fb: FormBuilder) {
@@ -51,6 +52,7 @@ export class CreatePlayerComponent implements OnInit {
 
 
   create() {
+    this.creating = true;
     const player = this.formGroup.value as Player;
     this.playerService.postPlayer(this.leagueId, this.teamId, player).subscribe((teamId) => {
       this.snackBar.open('The player was created successfully!!', '', { duration: 5000 });
@@ -60,8 +62,7 @@ export class CreatePlayerComponent implements OnInit {
         this.snackBar.open(error.error, '', { duration: 7500 });
       else
         this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-
-    });
+    }, () => this.creating = false);
   }
 
 }

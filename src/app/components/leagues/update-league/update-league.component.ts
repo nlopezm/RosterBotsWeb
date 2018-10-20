@@ -17,6 +17,7 @@ export class UpdateLeagueComponent implements OnInit {
   leagueId: number;
   formGroup: FormGroup;
   previousName: string;
+  creating = false;
 
   constructor(private route: ActivatedRoute, private leagueService: LeagueService,
     private fb: FormBuilder, private router: Router, public snackBar: MatSnackBar) {
@@ -41,12 +42,13 @@ export class UpdateLeagueComponent implements OnInit {
   create() {
     if (this.league.salaryCap < (this.league.starterPlayers + this.league.substitutePlayers))
       return;
+    this.creating = true;
     this.leagueService.updateLeague(this.league).subscribe(() => {
       this.snackBar.open('The league was updated!!', '', { duration: 5000 });
       this.router.navigateByUrl('/leagues');
     }, () => {
       this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    });
+    }), () => this.creating = false;
   }
 
   validateNameNotTaken(control: AbstractControl) {

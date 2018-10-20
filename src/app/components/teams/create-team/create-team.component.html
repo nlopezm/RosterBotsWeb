@@ -1,12 +1,12 @@
 <mat-card>
-  <form novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+  <form novalidate class="team-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && !creating && create()">
 
     <mat-form-field class="full-width">
       <input required formControlName="name" matInput placeholder="Name">
     </mat-form-field>
     <mat-error *ngIf="formGroup.get('name').status === 'PENDING'"> Checking name availability...</mat-error>
     <mat-error *ngIf="formGroup.get('name').hasError('nameTaken')">This name is already in use</mat-error>
-    <button mat-fab color="primary" (click)="formGroup.valid && create()">
+    <button mat-fab color="primary" (click)="formGroup.valid && create()" [disabled]="creating">
       <mat-icon>check</mat-icon>
     </button>
   </form>

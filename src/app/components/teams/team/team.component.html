@@ -1,4 +1,4 @@
-<mat-spinner class="spinner" *ngIf="!team"></mat-spinner>
+<mat-spinner *ngIf="!team"></mat-spinner>
 <mat-card *ngIf="team">
   <mat-card-title>{{team.name}}</mat-card-title>
 </mat-card>
@@ -25,9 +25,9 @@
       </a>
     </mat-list-item>
   </mat-nav-list>
+  <a [routerLink]="['/leagues', leagueId,'teams',team.id,'players','create']">
+    <button mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </a>
 </mat-card>
-<a [routerLink]="['/leagues', leagueId,'teams',team.id,'players','create']">
-  <button mat-fab color="primary">
-    <mat-icon>add</mat-icon>
-  </button>
-</a>

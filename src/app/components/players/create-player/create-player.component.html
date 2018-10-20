@@ -1,5 +1,5 @@
 <mat-card>
-  <form class="player-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+  <form class="player-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && !creting && create()">
     <mat-form-field class="full-width">
       <input required formControlName="firstName" matInput placeholder="First name">
     </mat-form-field>
@@ -33,7 +33,7 @@
       </mat-select>
     </mat-form-field>
     <mat-error *ngIf="formGroup.get('firstName').hasError('nameTaken') && formGroup.get('lastName').hasError('nameTaken')">This first name and last name combination is already in use</mat-error>
-    <button mat-fab color="primary" (click)="formGroup.valid && create()">
+    <button mat-fab color="primary" (click)="formGroup.valid && create()" [disabled]="creating">
       <mat-icon>check</mat-icon>
     </button>
   </form>

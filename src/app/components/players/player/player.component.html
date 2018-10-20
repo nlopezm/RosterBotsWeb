@@ -1,6 +1,6 @@
-<mat-spinner class="spinner" *ngIf="!player"></mat-spinner>
+<mat-spinner *ngIf="!player"></mat-spinner>
 <mat-card>
-  <form class="player-form" *ngIf="player" [formGroup]="formGroup" (onSubmit)="formGroup.valid && update()">
+  <form class="player-form" *ngIf="player" [formGroup]="formGroup" (onSubmit)="formGroup.valid && !updatingPlayer && update()">
     <mat-form-field class="full-width">
       <input required formControlName="firstName" matInput placeholder="First name" readonly="{{!updating}}" [(ngModel)]="player.first_name">
     </mat-form-field>
@@ -30,7 +30,7 @@
     <button mat-fab (click)="updatePlayer()" color="primary" *ngIf="!updating">
       <mat-icon>create</mat-icon>
     </button>
-    <button mat-fab color="primary" *ngIf="updating" (click)="formGroup.valid && update()">
+    <button mat-fab color="primary" *ngIf="updating" (click)="formGroup.valid && update()" [disabled]="updatingPlayer">
       <mat-icon>check</mat-icon>
     </button>
   </form>

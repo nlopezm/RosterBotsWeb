@@ -1,4 +1,4 @@
-<mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
+<mat-spinner *ngIf="loading"></mat-spinner>
 <mat-nav-list *ngIf="leagues">
   <mat-list-item *ngFor="let league of leagues; let i=index">
     <a matLine [routerLink]="['/leagues', league.id]">{{league.name}}</a>
@@ -18,7 +18,7 @@
   </mat-list-item>
 </mat-nav-list>
 <a [routerLink]="['/leagues', 'create']">
-  <button mat-fab color="primary">
+  <button mat-fab color="primary" [disabled]="loading">
     <mat-icon>add</mat-icon>
   </button>
 </a>

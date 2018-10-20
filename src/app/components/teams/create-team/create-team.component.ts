@@ -15,6 +15,7 @@ export class CreateTeamComponent implements OnInit {
   leagueId: number;
   team: Team;
   formGroup: FormGroup;
+  creating = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private teamService: TeamService, public snackBar: MatSnackBar, private fb: FormBuilder) {
@@ -35,11 +36,12 @@ export class CreateTeamComponent implements OnInit {
 
 
   create() {
+    this.creating = true;
     this.teamService.postTeam(this.leagueId, this.formGroup.value).subscribe((teamId) => {
       this.snackBar.open('The team was created and your players were generated!!', '', { duration: 5000 });
       this.router.navigateByUrl('/leagues/' + this.leagueId + '/teams/' + teamId);
     }, () => {
       this.snackBar.open('There was problem. Please try again.', '', { duration: 3000 });
-    });
+    }, () => this.creating = false);
   }
 }

@@ -1,21 +1,20 @@
 .league-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
 }
 
 .full-width {
-  width: 100%;
-}
-.mat-fab {
-  right: 0px;
-  bottom: 0px;
-  position: fixed;
-  margin: 20px;
+    width: 100%;
 }
 
-.spinner {
-  top: 45%;
-  position: fixed;
-  left: 37%;
+.mat-fab {
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+    margin: 20px;
+}
+
+.mat-spinner {
+    margin: 25% auto;
 }

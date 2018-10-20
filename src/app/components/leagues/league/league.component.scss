@@ -5,14 +5,12 @@
     margin: 20px;
 }
 
-.spinner {
-    top: 45%;
-    position: fixed;
-    left: 37%;
+.mat-spinner {
+  margin: 25% auto;
 }
 
 .no-teams-container {
-    text-align: center;
-    top: 55%;
-    position: sticky;
+  width: 100%;
+  text-align: center;
+  margin: 20% auto;
 }
