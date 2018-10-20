@@ -1,0 +1,40 @@
+<mat-card>
+  <form class="player-form" [formGroup]="formGroup" (onSubmit)="formGroup.valid && create()">
+    <mat-form-field class="full-width">
+      <input required formControlName="firstName" matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input required formControlName="lastName" matInput placeholder="Last name">
+    </mat-form-field>
+    <mat-error *ngIf="formGroup.get('firstName').status === 'PENDING' || formGroup.get('lastName').status === 'PENDING'"> Checking name and last name availability...</mat-error>
+    <mat-error *ngIf="formGroup.get('firstName').hasError('nameTaken') && formGroup.get('lastName').hasError('nameTaken')">This first name and last name combination is already in use</mat-error>
+
+    <mat-form-field class="full-width">
+      <input matInput required formControlName="speed" type="number" placeholder="Speed">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput required formControlName="agility" type="number" placeholder="Agility">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput required formControlName="strength" type="number" placeholder="Strength">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput required formControlName="salary" type="number" placeholder="Salary ($)">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select required formControlName="type" placeholder="Type">
+        <mat-option value="1">Starter</mat-option>
+        <mat-option value="0">Substitute</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="formGroup.get('firstName').hasError('nameTaken') && formGroup.get('lastName').hasError('nameTaken')">This first name and last name combination is already in use</mat-error>
+    <button mat-fab color="primary" (click)="formGroup.valid && create()">
+      <mat-icon>check</mat-icon>
+    </button>
+  </form>
+</mat-card>

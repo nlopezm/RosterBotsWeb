@@ -9,4 +9,5 @@ export class Player {
   agility: number;
   salary: number;
   team: Team;
+  type: number;
 }

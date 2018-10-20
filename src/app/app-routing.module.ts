@@ -5,12 +5,11 @@ import { LeaguesComponent } from './components/leagues/leagues.component';
 import { LeagueComponent } from './components/leagues/league/league.component';
 import { UpdateLeagueComponent } from './components/leagues/update-league/update-league.component';
 import { CreateLeagueComponent } from './components/leagues/create-league/create-league.component';
-
 import { TeamComponent } from './components/teams/team/team.component';
 import { UpdateTeamComponent } from './components/teams/update-team/update-team.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
-
 import { PlayerComponent } from './components/players/player/player.component';
+import { CreatePlayerComponent } from './components/players/create-player/create-player.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 
 const routes: Routes = [
@@ -21,6 +20,7 @@ const routes: Routes = [
   { path: 'leagues/:leagueId/teams/create', component: CreateTeamComponent, pathMatch: 'full', data: { title: 'Create team' } },
   { path: 'leagues/:leagueId/teams/:teamId', component: TeamComponent, pathMatch: 'full', data: { title: 'Teams' } },
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full', data: { title: 'Update team' } },
+  { path: 'leagues/:leagueId/teams/:teamId/players/create', component: CreatePlayerComponent, pathMatch: 'full', data: { title: 'Create player' } },
   { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full', data: { title: 'Update player' } },
   { path: 'home', component: HomeComponent, pathMatch: 'full', data: { title: 'Welcome!' } },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

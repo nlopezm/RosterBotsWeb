@@ -22,6 +22,10 @@ export class PlayerService {
     return this.http.get(this.url + leagueId + '/teams/' + teamId + '/players/' + playerId);
   }
 
+  postPlayer(leagueId: number, teamId: number, player: Player): Observable<{}> {
+    return this.http.post(this.url + leagueId + '/teams/' + teamId + '/players/' + player.type, player);
+  }
+
   updatePlayer(leagueId: number, teamId: number, player: Player): Observable<{}> {
     const fullName = {
       firstName: player.firstName,
