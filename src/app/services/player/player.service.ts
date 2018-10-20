@@ -7,6 +7,7 @@ import { Player } from '../../classes/player';
 import { environment } from '../../../environments/environment';
 import { of } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,9 +40,7 @@ export class PlayerService {
   }
 
   checkPlayerFullName(leagueId: number, teamId: number, firstName: string, lastName: string): Observable<{}> {
-    return this.http.head(this.url + leagueId + '/teams/' + teamId + '/players?firstName=' + firstName + '&lastName=' + lastName).pipe(
-      map(res => of(true)),
-      catchError(err => of(false)));
+    return this.http.head(this.url + leagueId + '/teams/' + teamId + '/players?firstName=' + firstName + '&lastName=' + lastName);
   }
 
 }

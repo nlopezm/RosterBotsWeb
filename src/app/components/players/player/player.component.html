@@ -2,14 +2,14 @@
 <mat-card>
   <form class="player-form" *ngIf="player" [formGroup]="formGroup" (onSubmit)="formGroup.valid && !updatingPlayer && update()">
     <mat-form-field class="full-width">
-      <input required formControlName="firstName" matInput placeholder="First name" readonly="{{!updating}}" [(ngModel)]="player.first_name">
+      <input required (keyup)='keyUpFirstName.next($event)' formControlName="firstName" matInput placeholder="First name" readonly="{{!updating}}" [(ngModel)]="player.first_name">
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input required formControlName="lastName" matInput placeholder="Last name" readonly="{{!updating}}" [(ngModel)]="player.last_name">
+      <input required (keyup)='keyUpFirstName.next($event)' formControlName="lastName" matInput placeholder="Last name" readonly="{{!updating}}" [(ngModel)]="player.last_name">
     </mat-form-field>
-    <mat-error *ngIf="formGroup.get('firstName').status === 'PENDING' || formGroup.get('lastName').status === 'PENDING'"> Checking name and last name availability...</mat-error>
-    <mat-error *ngIf="formGroup.get('firstName').hasError('nameTaken') || formGroup.get('lastName').hasError('nameTaken')">This first name and last name combination is already in use</mat-error>
+    <mat-error *ngIf="pending"> Checking name and last name availability...</mat-error>
+    <mat-error *ngIf="invalidName">This first name and last name combination is already in use</mat-error>
 
     <mat-form-field class="full-width">
       <input matInput placeholder="Speed" readonly disabled="{{updating}}" value="{{player.speed}}">
