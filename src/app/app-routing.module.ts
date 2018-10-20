@@ -22,6 +22,8 @@ const routes: Routes = [
   { path: 'leagues/:leagueId/teams/:teamId/update', component: UpdateTeamComponent, pathMatch: 'full', data: { title: 'Update team' } },
   { path: 'leagues/:leagueId/teams/:teamId/players/create', component: CreatePlayerComponent, pathMatch: 'full', data: { title: 'Create player' } },
   { path: 'leagues/:leagueId/teams/:teamId/players/:playerId', component: PlayerComponent, pathMatch: 'full', data: { title: 'Update player' } },
+  { path: 'leagues/:leagueId/teams', redirectTo: 'leagues/:leagueId' },
+  { path: 'leagues/:leagueId/teams/:teamId/players', redirectTo: 'leagues/:leagueId/teams/:teamId' },
   { path: 'home', component: HomeComponent, pathMatch: 'full', data: { title: 'Welcome!' } },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
